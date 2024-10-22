@@ -541,6 +541,17 @@ def teste_f_kmeans(kmeans, dataframe):
 # Os valores da estatística F são bastante sensíveis ao tamanho da amostra
 ANOVA = teste_f_kmeans(kmeans, df_cluster.iloc[0:,2:5])
 
+# Definir os graus de liberdade
+df_between = 3  # K - 1
+df_within = 669  # n - K
+
+# Nível de significância (alfa)
+alpha = 0.05
+
+# Calcular o valor crítico de F
+f_critico = f.ppf(1 - alpha, df_between, df_within)
+
+print(f"F-crítico: {f_critico}")
 
 # In[23]:
 
